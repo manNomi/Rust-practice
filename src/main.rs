@@ -223,6 +223,45 @@ fn pattern_matching() {
         Err(e) => println!("Error: {}", e),
     }
 }
+// 1) Result + ? 를 활용한 에러 전파
+fn read_number() -> Result<i32, String> {
+    let val = Some(10).ok_or("No value")?;   // 실패하면 Err로 반환됨
+    Ok(val + 1)
+}
+
+use std::panic;
+
+// fn main() {
+//     let result = panic::catch_unwind(|| {
+//         panic!("Boom!");
+//     });
+
+//     match result {
+//         Ok(_) => println!("No panic"),
+//         Err(_) => println!("Caught a panic"),
+//     }
+// }
+
+// ✅ Why no try-catch?
+
+// Rust 철학:
+
+// 에러는 타입 시스템으로 처리해라
+// (= 컴파일러가 확인할 수 있게)
+
+// 그래서
+// ✅ 어디서 에러 날지 명확
+// ✅ 핸들링을 강제 → 안전
+// ❌ try-catch만큼 즉흥적이지 않음
+
+// ✅ Rust의 Result::Err(...) 는 “에러를 반환(return) 하는 것”이지
+// JS/TS처럼 throw 하는 게 아니다.
+
+// 즉,
+// 	•	Err → 값으로 리턴
+// 	•	throw → 스택 던지기(예외)
+
+// Rust는 후자를 기본적으로 안 한다.
 
 // ============================================
 // 8. 구조체 (Structs)

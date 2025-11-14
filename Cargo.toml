@@ -11,4 +11,38 @@ path = "src/main.rs"
 name = "advanced"
 path = "src/advanced_examples.rs"
 
+[[bin]]
+name = "learning"
+path = "src/learning_main.rs"
+
 [dependencies]
+# 비동기 프로그래밍
+tokio = { version = "1", features = ["full"], optional = true }
+
+# 정규표현식
+regex = { version = "1", optional = true }
+
+# CLI 도구 개발
+clap = { version = "4", features = ["derive"], optional = true }
+
+# SWC (JavaScript/TypeScript 파서)
+swc_ecma_ast = { version = "1", optional = true }
+swc_ecma_parser = { version = "1", optional = true }
+swc_ecma_visit = { version = "1", optional = true }
+swc_ecma_codegen = { version = "1", optional = true }
+swc_common = { version = "1", optional = true }
+
+# 로깅
+env_logger = { version = "0.11", optional = true }
+log = { version = "0.4", optional = true }
+
+# 유틸리티
+once_cell = { version = "1", optional = true }
+
+[features]
+default = []
+full = ["tokio", "regex", "clap", "swc_ecma_ast", "swc_ecma_parser", "swc_ecma_visit", "swc_ecma_codegen", "swc_common", "env_logger", "log", "once_cell"]
+async = ["tokio"]
+regex = ["regex"]
+clap = ["clap"]
+swc = ["swc_ecma_ast", "swc_ecma_parser", "swc_ecma_visit", "swc_ecma_codegen", "swc_common"]
