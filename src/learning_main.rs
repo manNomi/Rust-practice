@@ -12,6 +12,7 @@ mod regex_examples;
 mod swc_examples;
 mod cli_examples;
 mod generics_traits;
+mod testing;
 
 // 모듈에서 함수 사용
 use collections::run_collections_examples;
@@ -22,6 +23,7 @@ use regex_examples::run_regex_examples;
 use swc_examples::run_swc_examples;
 use cli_examples::run_cli_examples;
 use generics_traits::run_generics_traits_examples;
+use testing::run_testing_examples;
 
 fn main() {
     println!("╔════════════════════════════════════════════════════════════╗");
@@ -57,6 +59,9 @@ fn main() {
 
     // 8. CLI 도구 개발
     run_cli_examples();
+
+    // 9. 테스트 코드 작성법
+    run_testing_examples();
 
     println!("\n╔════════════════════════════════════════════════════════════╗");
     println!("║                    학습 완료!                             ║");
