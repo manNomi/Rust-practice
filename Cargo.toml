@@ -41,8 +41,8 @@ once_cell = { version = "1", optional = true }
 
 [features]
 default = []
-full = ["tokio", "regex", "clap", "swc_ecma_ast", "swc_ecma_parser", "swc_ecma_visit", "swc_ecma_codegen", "swc_common", "env_logger", "log", "once_cell"]
-async = ["tokio"]
-regex = ["regex"]
-clap = ["clap"]
-swc = ["swc_ecma_ast", "swc_ecma_parser", "swc_ecma_visit", "swc_ecma_codegen", "swc_common"]
+full = ["dep:tokio", "dep:regex", "dep:clap", "dep:swc_ecma_ast", "dep:swc_ecma_parser", "dep:swc_ecma_visit", "dep:swc_ecma_codegen", "dep:swc_common", "dep:env_logger", "dep:log", "dep:once_cell"]
+async = ["dep:tokio"]
+regex = ["dep:regex"]
+clap = ["dep:clap"]
+swc = ["dep:swc_ecma_ast", "dep:swc_ecma_parser", "dep:swc_ecma_visit", "dep:swc_ecma_codegen", "dep:swc_common"]
